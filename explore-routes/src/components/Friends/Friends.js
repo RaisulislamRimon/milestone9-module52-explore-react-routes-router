@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import Friend from "../Friend/Friend";
 
 const Friends = () => {
   const friends = useLoaderData();
@@ -7,6 +8,9 @@ const Friends = () => {
     <div>
       <h1>Friends component </h1>
       <h3>Total Friends : {friends.length}</h3>
+      {friends.map((friend) => (
+        <Friend key={friend.id} friend={friend} />
+      ))}
     </div>
   );
 };
