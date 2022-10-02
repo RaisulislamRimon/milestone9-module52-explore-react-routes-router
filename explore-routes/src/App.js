@@ -1,6 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./components/About/About";
+import FriendDetails from "./components/FriendDetails/FriendDetails";
 import Friends from "./components/Friends/Friends";
 import Home from "./components/Home/Home";
 import NotFound from "./components/NotFound/NotFound";
@@ -21,6 +22,10 @@ const App = () => {
           loader: async () => {
             return fetch("https://jsonplaceholder.typicode.com/users");
           },
+        },
+        {
+          path: "/friend/:friendId",
+          element: <FriendDetails />,
         },
         { path: "/about", element: <About /> },
         { path: "*", element: <NotFound /> },
