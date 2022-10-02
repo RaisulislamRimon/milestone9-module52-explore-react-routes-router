@@ -26,6 +26,12 @@ const App = () => {
         {
           path: "/friend/:friendId",
           element: <FriendDetails />,
+          loader: async ({ params }) => {
+            // console.log(params.friendId);
+            return fetch(
+              `https://jsonplaceholder.typicode.com/users/${params.friendId}`
+            );
+          },
         },
         { path: "/about", element: <About /> },
         { path: "*", element: <NotFound /> },
