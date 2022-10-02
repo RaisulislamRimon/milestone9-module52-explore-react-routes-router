@@ -1,27 +1,22 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./components/About/About";
-import Header from "./components/Header/Header";
+import Friends from "./components/Friends/Friends";
 import Home from "./components/Home/Home";
 import Products from "./components/Products/Products";
+import Main from "./layout/Main";
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Header />,
-    },
-    {
-      path: "/about",
-      element: <About />,
-    },
-    {
-      path: "home",
-      element: <Home />,
-    },
-    {
-      path: "products",
-      element: <Products />,
+      element: <Main />,
+      children: [
+        { path: "/home", element: <Home /> },
+        { path: "/about", element: <About /> },
+        { path: "/products", element: <Products /> },
+        { path: "/friends", element: <Friends /> },
+      ],
     },
   ]);
   return (
