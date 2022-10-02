@@ -18,7 +18,7 @@ const Post = ({ post }) => {
     >
       <h3>Post: {id}</h3>
       <h2>{title}</h2>
-      <p>{body}</p>
+      {/* <p>{body}</p> */}
       <Link to={`/post/${id}`}>Visit : {id}</Link>
       <Link to={`/post/${id}`}>
         <button>Visit : {id}</button>
