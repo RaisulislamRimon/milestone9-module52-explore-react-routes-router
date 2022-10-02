@@ -1,8 +1,8 @@
 import React from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Post = ({ post }) => {
-  const { id, title, body } = post;
+  const { id, title } = post;
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate(`/posts/${id}`);
@@ -19,8 +19,8 @@ const Post = ({ post }) => {
       <h3>Post: {id}</h3>
       <h2>{title}</h2>
       {/* <p>{body}</p> */}
-      <Link to={`/post/${id}`}>Visit : {id}</Link>
-      <Link to={`/post/${id}`}>
+      <Link to={`/posts/${id}`}>Visit : {id}</Link>
+      <Link to={`/posts/${id}`}>
         <button>Visit : {id}</button>
       </Link>
       <button onClick={handleNavigate}>Show Details</button>
