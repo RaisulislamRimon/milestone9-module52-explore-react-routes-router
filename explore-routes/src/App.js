@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./components/About/About";
 import Friends from "./components/Friends/Friends";
 import Home from "./components/Home/Home";
+import NotFound from "./components/NotFound/NotFound";
 import Products from "./components/Products/Products";
 import Main from "./layout/Main";
 
@@ -14,8 +15,15 @@ const App = () => {
       children: [
         { path: "/home", element: <Home /> },
         { path: "/products", element: <Products /> },
-        { path: "/friends", element: <Friends /> },
+        {
+          path: "/friends",
+          element: <Friends />,
+          loader: async () => {
+            return fetch("https://jsonplaceholder.typicode.com/users");
+          },
+        },
         { path: "/about", element: <About /> },
+        { path: "*", element: <NotFound /> },
       ],
     },
   ]);
